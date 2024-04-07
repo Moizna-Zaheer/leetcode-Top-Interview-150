@@ -1,0 +1,11 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        profit = 0 # delclare profit zero
+        
+        lowest = prices[0] # lowest buying price is first price
+        for price in prices:
+            if price < lowest:# if current price is less then lowest price
+                lowest = price # we'll change lowest with current price
+            profit = max(profit, price - lowest) # we will check current price - lowest price
+        return profit # return the maxium profit at the end
+        
