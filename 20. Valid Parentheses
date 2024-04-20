@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        closingbracket = {')':'(', '}':'{', ']':'['}
+
+        for c in s:
+            if c in closingbracket:
+                if stack and stack[-1] == closingbracket[c]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(c)
+
+        return not stack
